@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B460D8B1C0606E0002251C9 /* Fish.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B460D8A1C0606E0002251C9 /* Fish.m */; };
 		1B657C3B1C05E78D00C1A64B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657C3A1C05E78D00C1A64B /* main.m */; };
 		1B657C3E1C05E78D00C1A64B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657C3D1C05E78D00C1A64B /* AppDelegate.m */; };
 		1B657C411C05E78D00C1A64B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657C401C05E78D00C1A64B /* ViewController.m */; };
@@ -14,9 +15,12 @@
 		1B657C461C05E78E00C1A64B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B657C451C05E78E00C1A64B /* Assets.xcassets */; };
 		1B657C491C05E78E00C1A64B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B657C471C05E78E00C1A64B /* LaunchScreen.storyboard */; };
 		1B657C511C05E8B000C1A64B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1B657C501C05E8B000C1A64B /* .gitignore */; };
+		1B657C5D1C06000000C1A64B /* FishSpecies.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657C5C1C06000000C1A64B /* FishSpecies.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B460D891C0606E0002251C9 /* Fish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fish.h; sourceTree = "<group>"; };
+		1B460D8A1C0606E0002251C9 /* Fish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fish.m; sourceTree = "<group>"; };
 		1B657C361C05E78D00C1A64B /* Fish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B657C3A1C05E78D00C1A64B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B657C3C1C05E78D00C1A64B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,6 +32,8 @@
 		1B657C481C05E78E00C1A64B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B657C4A1C05E78E00C1A64B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B657C501C05E8B000C1A64B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		1B657C5B1C06000000C1A64B /* FishSpecies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishSpecies.h; sourceTree = "<group>"; };
+		1B657C5C1C06000000C1A64B /* FishSpecies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishSpecies.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 		1B657C381C05E78D00C1A64B /* Fish */ = {
 			isa = PBXGroup;
 			children = (
+				1B657C5A1C05FFAF00C1A64B /* Models */,
 				1B657C3C1C05E78D00C1A64B /* AppDelegate.h */,
 				1B657C3D1C05E78D00C1A64B /* AppDelegate.m */,
 				1B657C3F1C05E78D00C1A64B /* ViewController.h */,
@@ -80,6 +87,17 @@
 				1B657C3A1C05E78D00C1A64B /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1B657C5A1C05FFAF00C1A64B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1B657C5B1C06000000C1A64B /* FishSpecies.h */,
+				1B657C5C1C06000000C1A64B /* FishSpecies.m */,
+				1B460D891C0606E0002251C9 /* Fish.h */,
+				1B460D8A1C0606E0002251C9 /* Fish.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +171,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B460D8B1C0606E0002251C9 /* Fish.m in Sources */,
 				1B657C411C05E78D00C1A64B /* ViewController.m in Sources */,
 				1B657C3E1C05E78D00C1A64B /* AppDelegate.m in Sources */,
+				1B657C5D1C06000000C1A64B /* FishSpecies.m in Sources */,
 				1B657C3B1C05E78D00C1A64B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
