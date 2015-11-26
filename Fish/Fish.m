@@ -33,4 +33,8 @@
     return self.leftAmount < self.species.hungryPoint;
 }
 
+- (BOOL)isDead {
+    return self.leftAmount == 0;
+}
+
 @end

@@ -17,5 +17,6 @@
 
 - (instancetype)initWithSpecies:(FishSpecies *)species;
 - (BOOL)isHungry;
+- (BOOL)isDead;
 
 @end
