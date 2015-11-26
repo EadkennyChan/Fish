@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B203EBC1C0758D500219E87 /* Lake.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B203EBB1C0758D500219E87 /* Lake.m */; };
+		1B203EBF1C0758E200219E87 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B203EBE1C0758E200219E87 /* World.m */; };
+		1B203EC31C07594600219E87 /* Farmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B203EC21C07594600219E87 /* Farmer.m */; };
+		1B203EC61C07595800219E87 /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B203EC51C07595800219E87 /* Robot.m */; };
+		1B203EC91C0760EB00219E87 /* FoodPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B203EC81C0760EB00219E87 /* FoodPackage.m */; };
 		1B460D8B1C0606E0002251C9 /* Fish.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B460D8A1C0606E0002251C9 /* Fish.m */; };
 		1B657C3B1C05E78D00C1A64B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657C3A1C05E78D00C1A64B /* main.m */; };
 		1B657C3E1C05E78D00C1A64B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657C3D1C05E78D00C1A64B /* AppDelegate.m */; };
@@ -19,6 +24,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B203EBA1C0758D500219E87 /* Lake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lake.h; sourceTree = "<group>"; };
+		1B203EBB1C0758D500219E87 /* Lake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lake.m; sourceTree = "<group>"; };
+		1B203EBD1C0758E200219E87 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		1B203EBE1C0758E200219E87 /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
+		1B203EC01C07591600219E87 /* Feeder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Feeder.h; sourceTree = "<group>"; };
+		1B203EC11C07594600219E87 /* Farmer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Farmer.h; sourceTree = "<group>"; };
+		1B203EC21C07594600219E87 /* Farmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Farmer.m; sourceTree = "<group>"; };
+		1B203EC41C07595800219E87 /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Robot.h; sourceTree = "<group>"; };
+		1B203EC51C07595800219E87 /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Robot.m; sourceTree = "<group>"; };
+		1B203EC71C0760EB00219E87 /* FoodPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodPackage.h; sourceTree = "<group>"; };
+		1B203EC81C0760EB00219E87 /* FoodPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodPackage.m; sourceTree = "<group>"; };
 		1B460D891C0606E0002251C9 /* Fish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fish.h; sourceTree = "<group>"; };
 		1B460D8A1C0606E0002251C9 /* Fish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fish.m; sourceTree = "<group>"; };
 		1B657C361C05E78D00C1A64B /* Fish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fish.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +112,17 @@
 				1B657C5C1C06000000C1A64B /* FishSpecies.m */,
 				1B460D891C0606E0002251C9 /* Fish.h */,
 				1B460D8A1C0606E0002251C9 /* Fish.m */,
+				1B203EBA1C0758D500219E87 /* Lake.h */,
+				1B203EBB1C0758D500219E87 /* Lake.m */,
+				1B203EBD1C0758E200219E87 /* World.h */,
+				1B203EBE1C0758E200219E87 /* World.m */,
+				1B203EC71C0760EB00219E87 /* FoodPackage.h */,
+				1B203EC81C0760EB00219E87 /* FoodPackage.m */,
+				1B203EC01C07591600219E87 /* Feeder.h */,
+				1B203EC11C07594600219E87 /* Farmer.h */,
+				1B203EC21C07594600219E87 /* Farmer.m */,
+				1B203EC41C07595800219E87 /* Robot.h */,
+				1B203EC51C07595800219E87 /* Robot.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -171,9 +198,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B203EC31C07594600219E87 /* Farmer.m in Sources */,
+				1B203EBC1C0758D500219E87 /* Lake.m in Sources */,
+				1B203EBF1C0758E200219E87 /* World.m in Sources */,
 				1B460D8B1C0606E0002251C9 /* Fish.m in Sources */,
+				1B203EC91C0760EB00219E87 /* FoodPackage.m in Sources */,
 				1B657C411C05E78D00C1A64B /* ViewController.m in Sources */,
 				1B657C3E1C05E78D00C1A64B /* AppDelegate.m in Sources */,
+				1B203EC61C07595800219E87 /* Robot.m in Sources */,
 				1B657C5D1C06000000C1A64B /* FishSpecies.m in Sources */,
 				1B657C3B1C05E78D00C1A64B /* main.m in Sources */,
 			);
