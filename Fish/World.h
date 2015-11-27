@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Feeder.h"
 
+@class Clock;
 @class Lake;
 @class FoodPackage;
 @class FishSpecies;
@@ -16,6 +17,7 @@
 
 @interface World : NSObject
 
+@property (nonatomic, readonly) Clock *clock;
 @property (nonatomic, readonly) id<Feeder> feeder;
 @property (nonatomic, readonly) Lake *lake;
 @property (nonatomic, readonly) FoodPackage *foodPackage;

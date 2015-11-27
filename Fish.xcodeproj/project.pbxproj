@@ -21,6 +21,7 @@
 		1B657C491C05E78E00C1A64B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B657C471C05E78E00C1A64B /* LaunchScreen.storyboard */; };
 		1B657C511C05E8B000C1A64B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1B657C501C05E8B000C1A64B /* .gitignore */; };
 		1B657C5D1C06000000C1A64B /* FishSpecies.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657C5C1C06000000C1A64B /* FishSpecies.m */; };
+		1B781CC01C08B96100F568B9 /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B781CBF1C08B96100F568B9 /* Clock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		1B657C501C05E8B000C1A64B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1B657C5B1C06000000C1A64B /* FishSpecies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishSpecies.h; sourceTree = "<group>"; };
 		1B657C5C1C06000000C1A64B /* FishSpecies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishSpecies.m; sourceTree = "<group>"; };
+		1B781CBE1C08B96100F568B9 /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
+		1B781CBF1C08B96100F568B9 /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				1B203EC21C07594600219E87 /* Farmer.m */,
 				1B203EC41C07595800219E87 /* Robot.h */,
 				1B203EC51C07595800219E87 /* Robot.m */,
+				1B781CBE1C08B96100F568B9 /* Clock.h */,
+				1B781CBF1C08B96100F568B9 /* Clock.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B781CC01C08B96100F568B9 /* Clock.m in Sources */,
 				1B203EC31C07594600219E87 /* Farmer.m in Sources */,
 				1B203EBC1C0758D500219E87 /* Lake.m in Sources */,
 				1B203EBF1C0758E200219E87 /* World.m in Sources */,
