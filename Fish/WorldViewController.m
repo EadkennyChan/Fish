@@ -69,6 +69,7 @@ static NSString *const FishCellIdentifier = @"FishCellIdentifier";
 
 - (void)tick {
     [self updateTitle];
+    [self.tableView reloadData];
 }
 
 #pragma mark - "private" methods

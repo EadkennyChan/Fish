@@ -31,8 +31,16 @@
     if (self) {
         _species = species;
         _leftAmount = _species.maxAmount; // assuming fish are born full (otherwise they will die immediately)
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tick) name:ClockTickNotification object:nil];
     }
     return self;
+}
+
+#pragma mark - object life cycle methods
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ClockTickNotification object:nil];
 }
 
 #pragma mark - "public" methods
@@ -57,6 +65,16 @@
 
 - (BOOL)canBite {
     return [Clock sharedClock].time - _lastBiteTime >= _species.biteInterval;
+}
+
+- (void)digest {
+    _leftAmount -= MIN(_leftAmount, self.species.digestionSpeed);
+}
+
+#pragma mark - NSNotificationCenter related methods
+
+- (void)tick {
+    [self digest];
 }
 
 @end
