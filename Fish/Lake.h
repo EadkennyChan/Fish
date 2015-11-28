@@ -10,4 +10,9 @@
 
 @interface Lake : NSObject
 
+@property (nonatomic, readonly) NSUInteger foodCount;
+
+- (void)addAmount:(NSUInteger)amount;
+- (NSUInteger)takeMaxAmount:(NSUInteger)maxAmount;
+
 @end

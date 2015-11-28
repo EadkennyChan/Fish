@@ -10,4 +10,14 @@
 
 @implementation Lake
 
+- (void)addAmount:(NSUInteger)amount {
+    _foodCount += amount;
+}
+
+- (NSUInteger)takeMaxAmount:(NSUInteger)maxAmount {
+    NSUInteger amount = MIN(_foodCount, maxAmount);
+    _foodCount -= amount;
+    return amount;
+}
+
 @end
