@@ -26,13 +26,8 @@
     if (self) {
         [[NSBundle mainBundle] loadNibNamed:@"WorldTableHeaderView" owner:self options:nil];
         [self addSubview:_contentView];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tick) name:ClockTickNotification object:nil];
     }
     return self;
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:ClockTickNotification object:nil];
 }
 
 - (void)layoutSubviews {
@@ -47,10 +42,6 @@
 
 - (void)reloadData {
     _label.text = [NSString stringWithFormat:@"Time: %lu seconds.\nM: %lu. N: %lu seconds. Usable: >=%lu.\nFood Package: %lu.\nLake: %lu.", (unsigned long)[Clock sharedClock].time, (unsigned long)_world.foodPackage.maxAmount, (unsigned long)_world.foodPackage.fullRefillInterval, (unsigned long)_world.foodPackage.minAmountUsable, (unsigned long)_world.foodPackage.amount, (unsigned long)_world.lake.foodCount];
-}
-
-- (void)tick {
-    [self reloadData];
 }
 
 @end

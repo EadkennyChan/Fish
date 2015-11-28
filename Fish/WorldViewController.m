@@ -104,6 +104,7 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
 
 - (void)tick {
     [self updateTitle];
+    [worldTableHeaderView reloadData];
     [self.tableView reloadData];
 }
 

@@ -14,4 +14,6 @@
 
 @property (nonatomic) World *world;
 
+- (void)reloadData;
+
 @end
