@@ -18,7 +18,7 @@
 @property (nonatomic, readonly) NSUInteger leftAmount; // Ci
 
 @property (nonatomic) Clock *clock;
-@property (nonatomic) Lake *lake;
+@property (weak, nonatomic) Lake *lake;
 
 - (instancetype)initWithSpecies:(FishSpecies *)species;
 - (BOOL)isHungry;

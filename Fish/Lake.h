@@ -8,11 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class FishSpecies;
+@class Fish;
+
 @interface Lake : NSObject
 
 @property (nonatomic, readonly) NSUInteger foodCount;
+@property (nonatomic, readonly) NSArray *fishSpeciesList;
+@property (nonatomic, readonly) NSArray *fishList;
 
 - (void)addAmount:(NSUInteger)amount;
 - (NSUInteger)takeMaxAmount:(NSUInteger)maxAmount;
+- (void)addFishSpecies:(FishSpecies *)species;
+- (void)addFish:(Fish *)fish;
 
 @end

@@ -12,8 +12,6 @@
 @class Clock;
 @class Lake;
 @class FoodPackage;
-@class FishSpecies;
-@class Fish;
 
 @interface World : NSObject
 
@@ -21,7 +19,5 @@
 @property (nonatomic, readonly) id<Feeder> feeder;
 @property (nonatomic, readonly) Lake *lake;
 @property (nonatomic, readonly) FoodPackage *foodPackage;
-@property (nonatomic, readonly) NSArray *fishSpeciesList;
-@property (nonatomic, readonly) NSArray *fishList;
 
 @end
