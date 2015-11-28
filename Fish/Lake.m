@@ -12,7 +12,7 @@
 
 @interface Lake () {
     NSMutableArray *_fishSpeciesList;
-    NSMutableArray *_fishList;
+    NSMutableArray *_fishGroupList;
 }
 
 @end
@@ -31,14 +31,16 @@
         [_fishSpeciesList addObject:[[FishSpecies alloc] initWithName:@"Eagle ray" maxAmount:200 biteAmount:10 hungryPoint:30 biteInterval:5 digestionSpeed:50]];
         [_fishSpeciesList addObject:[[FishSpecies alloc] initWithName:@"Firefish" maxAmount:7 biteAmount:1 hungryPoint:2 biteInterval:1 digestionSpeed:5]];
 
-        _fishList = [NSMutableArray array];
-        // add a random number (from 0 to 9) of fish of each species
+        _fishGroupList = [NSMutableArray arrayWithCapacity:6];
+        // add a random number (from 1 to 10) of fish of each species
         for (FishSpecies *species in _fishSpeciesList) {
-            NSUInteger randomFishIndividualsNumber = arc4random_uniform(10);
+            [_fishGroupList addObject:[NSMutableArray array]];
+
+            NSUInteger randomFishIndividualsNumber = arc4random_uniform(10) + 1;
             for (NSUInteger i = 0; i < randomFishIndividualsNumber; i++) {
                 Fish *fish = [[Fish alloc] initWithSpecies:species];
                 fish.lake = self;
-                [_fishList addObject:fish];
+                [[_fishGroupList lastObject] addObject:fish];
             }
         }
     }
@@ -60,7 +62,17 @@
 }
 
 - (void)addFish:(Fish *)fish {
-    [_fishList addObject:fish];
+    FishSpecies *species = fish.species;
+
+    if (![_fishSpeciesList containsObject:species]) {
+        [self addFishSpecies:species];
+    }
+
+    [_fishGroupList[[_fishSpeciesList indexOfObject:species]] addObject:fish];
+}
+
+- (NSArray *)fishListOfSpecies:(FishSpecies *)species {
+    return _fishGroupList[[_fishSpeciesList indexOfObject:species]];
 }
 
 @end

@@ -24,7 +24,7 @@
     if (self) {
         _name = name;
         _maxAmount = maxAmount;
-        _biteInterval = biteAmount;
+        _biteAmount = biteAmount;
         _hungryPoint = hungryPoint; // for simplification, the program does not check for the condition 0 < hungryPoint < maxAmount
         _biteInterval = biteInterval; // can biteInterval be 0?
         _digestionSpeed = digestionSpeed;

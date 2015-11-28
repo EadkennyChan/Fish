@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "WorldViewController.h"
+#import "World.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    World *world = [[World alloc] init];
+    WorldViewController *worldViewController = [[WorldViewController alloc] init];
+    worldViewController.world = world;
+
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    _window.rootViewController = [[UINavigationController alloc] initWithRootViewController:worldViewController];
+    [_window makeKeyAndVisible];
     return YES;
 }
 
