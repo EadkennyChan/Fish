@@ -32,11 +32,11 @@
         [_fishSpeciesList addObject:[[FishSpecies alloc] initWithName:@"Firefish" maxAmount:7 biteAmount:1 hungryPoint:2 biteInterval:1 digestionSpeed:5]];
 
         _fishGroupList = [NSMutableArray arrayWithCapacity:6];
-        // add a random number (from 1 to 10) of fish of each species
+        // add a random number (from 6 to 9 inclusively) of fish of each species
         for (FishSpecies *species in _fishSpeciesList) {
             [_fishGroupList addObject:[NSMutableArray array]];
 
-            NSUInteger randomFishIndividualsNumber = arc4random_uniform(10) + 1;
+            NSUInteger randomFishIndividualsNumber = arc4random_uniform(4) + 6;
             for (NSUInteger i = 0; i < randomFishIndividualsNumber; i++) {
                 Fish *fish = [[Fish alloc] initWithSpecies:species];
                 fish.lake = self;
