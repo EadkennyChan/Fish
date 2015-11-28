@@ -7,6 +7,7 @@
 //
 
 #import "FoodPackage.h"
+#import "Clock.h"
 
 @implementation FoodPackage
 
@@ -25,8 +26,14 @@
         _minAmountUsable = minAmountUsable;
 
         _amount = maxAmount; // assuming the package is initially full
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tick) name:ClockTickNotification object:nil];
     }
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ClockTickNotification object:nil];
 }
 
 #pragma mark - "public" methods
@@ -43,6 +50,12 @@
     } else {
         return 0;
     }
+}
+
+#pragma mark - NSNotificationCenter related methods
+
+- (void)tick {
+    _amount += MIN(_maxAmount - _amount, _maxAmount / _fullRefillInterval); // ignore fraction
 }
 
 @end
