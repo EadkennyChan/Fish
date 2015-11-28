@@ -112,6 +112,9 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
 - (void)fishSpeciesTableHeaderViewAddButtonTapped:(FishSpeciesTableHeaderView *)fishSpeciesTableHeaderView {
     [_world.lake addFish:[[Fish alloc] initWithSpecies:fishSpeciesTableHeaderView.species]];
     [self.tableView reloadData];
+
+    NSUInteger section = [_world.lake.fishSpeciesList indexOfObject:fishSpeciesTableHeaderView.species];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.tableView numberOfRowsInSection:section] - 1 inSection:section] atScrollPosition:UITableViewScrollPositionNone animated:YES];
 }
 
 #pragma mark - FishTableViewCellDelegte
