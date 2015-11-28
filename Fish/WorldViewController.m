@@ -56,6 +56,7 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
     [self updateTitle];
     self.tableView.tableHeaderView = worldTableHeaderView;
+    [self reloadFeedButton];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tick) name:ClockTickNotification object:nil];
 }
@@ -105,6 +106,7 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
 - (void)tick {
     [self updateTitle];
     [worldTableHeaderView reloadData];
+    [self reloadFeedButton];
     [self.tableView reloadData];
 }
 
@@ -141,6 +143,10 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
         NSUInteger foodCount = [_world.foodPackage use];
         [_world.lake addAmount:foodCount];
     }
+}
+
+- (void)reloadFeedButton {
+    feedButton.enabled = [_world.foodPackage isReady];
 }
 
 - (void)autoButtonTapped {
