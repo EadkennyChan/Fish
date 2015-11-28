@@ -59,6 +59,7 @@
 
 - (void)addFishSpecies:(FishSpecies *)species {
     [_fishSpeciesList addObject:species];
+    [_fishGroupList addObject:[NSMutableArray array]];
 }
 
 - (void)addFish:(Fish *)fish {

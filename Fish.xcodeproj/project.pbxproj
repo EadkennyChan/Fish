@@ -23,6 +23,8 @@
 		1B671B251C09FF1B00E009B8 /* FishTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B671B241C09FF1B00E009B8 /* FishTableViewCell.m */; };
 		1B671B281C0A010500E009B8 /* FishSpeciesTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B671B271C0A010500E009B8 /* FishSpeciesTableHeaderView.m */; };
 		1B671B2C1C0A015C00E009B8 /* FishSpeciesTableHeaderContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B671B2B1C0A015C00E009B8 /* FishSpeciesTableHeaderContentView.xib */; };
+		1B671B2F1C0A0D7000E009B8 /* AddFishSpeciesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B671B2E1C0A0D7000E009B8 /* AddFishSpeciesViewController.m */; };
+		1B671B311C0A0E1D00E009B8 /* AddFishSpeciesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B671B301C0A0E1D00E009B8 /* AddFishSpeciesView.xib */; };
 		1B781CC01C08B96100F568B9 /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B781CBF1C08B96100F568B9 /* Clock.m */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,9 @@
 		1B671B261C0A010500E009B8 /* FishSpeciesTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishSpeciesTableHeaderView.h; sourceTree = "<group>"; };
 		1B671B271C0A010500E009B8 /* FishSpeciesTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishSpeciesTableHeaderView.m; sourceTree = "<group>"; };
 		1B671B2B1C0A015C00E009B8 /* FishSpeciesTableHeaderContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FishSpeciesTableHeaderContentView.xib; sourceTree = "<group>"; };
+		1B671B2D1C0A0D7000E009B8 /* AddFishSpeciesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFishSpeciesViewController.h; sourceTree = "<group>"; };
+		1B671B2E1C0A0D7000E009B8 /* AddFishSpeciesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFishSpeciesViewController.m; sourceTree = "<group>"; };
+		1B671B301C0A0E1D00E009B8 /* AddFishSpeciesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFishSpeciesView.xib; sourceTree = "<group>"; };
 		1B781CBE1C08B96100F568B9 /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
 		1B781CBF1C08B96100F568B9 /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +147,8 @@
 			children = (
 				1B671B181C099B0300E009B8 /* WorldViewController.h */,
 				1B671B191C099B0300E009B8 /* WorldViewController.m */,
+				1B671B2D1C0A0D7000E009B8 /* AddFishSpeciesViewController.h */,
+				1B671B2E1C0A0D7000E009B8 /* AddFishSpeciesViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -162,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				1B671B2B1C0A015C00E009B8 /* FishSpeciesTableHeaderContentView.xib */,
+				1B671B301C0A0E1D00E009B8 /* AddFishSpeciesView.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -227,6 +235,7 @@
 				1B657C511C05E8B000C1A64B /* .gitignore in Resources */,
 				1B657C491C05E78E00C1A64B /* LaunchScreen.storyboard in Resources */,
 				1B657C461C05E78E00C1A64B /* Assets.xcassets in Resources */,
+				1B671B311C0A0E1D00E009B8 /* AddFishSpeciesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +257,7 @@
 				1B671B281C0A010500E009B8 /* FishSpeciesTableHeaderView.m in Sources */,
 				1B203EC61C07595800219E87 /* Robot.m in Sources */,
 				1B657C5D1C06000000C1A64B /* FishSpecies.m in Sources */,
+				1B671B2F1C0A0D7000E009B8 /* AddFishSpeciesViewController.m in Sources */,
 				1B657C3B1C05E78D00C1A64B /* main.m in Sources */,
 				1B671B1A1C099B0300E009B8 /* WorldViewController.m in Sources */,
 			);

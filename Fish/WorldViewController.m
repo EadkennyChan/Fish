@@ -14,6 +14,7 @@
 #import "Clock.h"
 #import "FishTableViewCell.h"
 #import "FishSpeciesTableHeaderView.h"
+#import "AddFishSpeciesViewController.h"
 
 static NSString *const FishCellIdentifier = @"FishCellIdentifier";
 static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTableHeaderViewIdentifier";
@@ -35,6 +36,7 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
     [self.tableView registerClass:[FishTableViewCell class] forCellReuseIdentifier:FishCellIdentifier];
     [self.tableView registerClass:[FishSpeciesTableHeaderView class] forHeaderFooterViewReuseIdentifier:FishSpeciesTableHeaderViewIdentifier];
     self.tableView.allowsSelection = NO;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
     [self updateTitle];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tick) name:ClockTickNotification object:nil];
@@ -95,6 +97,11 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
 
 - (void)updateTitle {
     self.title = [NSString stringWithFormat:@"Clock: %lu second(s)", (unsigned long)[Clock sharedClock].time];
+}
+
+- (void)addButtonTapped {
+    AddFishSpeciesViewController *addFishSpeciesViewController = [[AddFishSpeciesViewController alloc] initWithLake:_world.lake];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:addFishSpeciesViewController] animated:YES completion:nil];
 }
 
 @end
