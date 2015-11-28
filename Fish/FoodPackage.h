@@ -10,4 +10,14 @@
 
 @interface FoodPackage : NSObject
 
+@property (nonatomic, readonly) NSUInteger maxAmount; // M
+@property (nonatomic, readonly) NSUInteger fullRefillInterval; // N
+@property (nonatomic, readonly) NSUInteger minAmountUsable;
+@property (nonatomic, readonly) NSUInteger amount;
+
+- (instancetype)initWithMaxAmount:(NSUInteger)maxAmount fullRefillInterval:(NSUInteger)fullRefillInterval minAmountUsable:(NSUInteger)minAmountUsable;
+
+- (BOOL)isReady;
+- (NSUInteger)use;
+
 @end
