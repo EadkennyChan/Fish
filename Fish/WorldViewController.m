@@ -52,7 +52,7 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
     [self.tableView registerClass:[FishTableViewCell class] forCellReuseIdentifier:FishCellIdentifier];
     [self.tableView registerClass:[FishSpeciesTableHeaderView class] forHeaderFooterViewReuseIdentifier:FishSpeciesTableHeaderViewIdentifier];
     self.tableView.allowsSelection = NO;
-    self.navigationItem.leftBarButtonItems = @[feedButton, autoButton];
+    self.navigationItem.leftBarButtonItems = @[feedButton, [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL], autoButton, [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
     [self updateTitle];
     self.tableView.tableHeaderView = worldTableHeaderView;
