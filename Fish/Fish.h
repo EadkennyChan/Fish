@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @class FishSpecies;
-@class Clock;
 @class Lake;
 
 @interface Fish : NSObject
@@ -17,7 +16,6 @@
 @property (nonatomic, readonly) FishSpecies *species;
 @property (nonatomic, readonly) NSUInteger leftAmount; // Ci
 
-@property (nonatomic) Clock *clock;
 @property (weak, nonatomic) Lake *lake;
 
 - (instancetype)initWithSpecies:(FishSpecies *)species;

@@ -28,20 +28,16 @@ static NSString *const FishCellIdentifier = @"FishCellIdentifier";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:FishCellIdentifier];
     self.tableView.allowsSelection = NO;
     [self updateTitle];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tick) name:ClockTickNotification object:nil];
 }
 
 #pragma mark - setters and getters
 
 - (void)setWorld:(World *)world {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:ClockTickNotification object:_world];
-
     _world = world;
     [self updateTitle];
     [self.tableView reloadData];
-
-    if (_world) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tick) name:ClockTickNotification object:_world.clock];
-    }
 }
 
 #pragma mark - UITableView related methods
@@ -78,7 +74,7 @@ static NSString *const FishCellIdentifier = @"FishCellIdentifier";
 #pragma mark - "private" methods
 
 - (void)updateTitle {
-    self.title = [NSString stringWithFormat:@"Clock: %lu second(s)", (unsigned long)_world.clock.time];
+    self.title = [NSString stringWithFormat:@"Clock: %lu second(s)", (unsigned long)[Clock sharedClock].time];
 }
 
 @end

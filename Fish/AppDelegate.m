@@ -28,7 +28,7 @@
     _window.rootViewController = [[UINavigationController alloc] initWithRootViewController:worldViewController];
     [_window makeKeyAndVisible];
 
-    [world.clock start];
+    [[Clock sharedClock] start];
     return YES;
 }
 

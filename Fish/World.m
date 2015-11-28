@@ -7,7 +7,6 @@
 //
 
 #import "World.h"
-#import "Clock.h"
 #import "Farmer.h"
 #import "Lake.h"
 #import "FoodPackage.h"
@@ -17,7 +16,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _clock = [[Clock alloc] init];
         _feeder = [[Farmer alloc] init];
         _lake = [[Lake alloc] init];
         _foodPackage = [[FoodPackage alloc] init];

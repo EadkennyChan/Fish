@@ -51,12 +51,12 @@
     if ([self canBite]) {
         NSUInteger realBiteAmount = [_lake takeMaxAmount:_species.biteAmount];
         _leftAmount += realBiteAmount;
-        _lastBiteTime = self.clock.time;
+        _lastBiteTime = [Clock sharedClock].time;
     }
 }
 
 - (BOOL)canBite {
-    return self.clock.time - _lastBiteTime >= _species.biteInterval;
+    return [Clock sharedClock].time - _lastBiteTime >= _species.biteInterval;
 }
 
 @end

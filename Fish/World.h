@@ -15,7 +15,6 @@
 
 @interface World : NSObject
 
-@property (nonatomic, readonly) Clock *clock;
 @property (nonatomic, readonly) id<Feeder> feeder;
 @property (nonatomic, readonly) Lake *lake;
 @property (nonatomic, readonly) FoodPackage *foodPackage;

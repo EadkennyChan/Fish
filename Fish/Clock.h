@@ -14,6 +14,8 @@ FOUNDATION_EXPORT NSString *const ClockTickNotification;
 
 @property (nonatomic, readonly) NSUInteger time; // NSUInteger can handle up to over 136 years on a 32-bit system.
 
++ (instancetype)sharedClock;
+
 - (void)start;
 - (void)stop;
 

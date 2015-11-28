@@ -18,6 +18,15 @@ NSString *const ClockTickNotification = @"ClockTickNotification";
 
 @implementation Clock
 
++ (instancetype)sharedClock {
+    static Clock *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
+
 - (void)start {
     _time = 0;
     timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(tick) userInfo:nil repeats:YES];
