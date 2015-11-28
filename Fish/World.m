@@ -18,7 +18,7 @@
     if (self) {
         _feeder = [[Farmer alloc] init];
         _lake = [[Lake alloc] init];
-        _foodPackage = [[FoodPackage alloc] init];
+        _foodPackage = [[FoodPackage alloc] initWithMaxAmount:500 fullRefillInterval:25 minAmountUsable:200];
     }
     return self;
 }

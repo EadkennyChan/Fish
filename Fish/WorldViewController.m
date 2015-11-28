@@ -12,18 +12,34 @@
 #import "Fish.h"
 #import "FishSpecies.h"
 #import "Clock.h"
+#import "FoodPackage.h"
 #import "FishTableViewCell.h"
 #import "FishSpeciesTableHeaderView.h"
 #import "AddFishSpeciesViewController.h"
+#import "WorldTableHeaderView.h"
 
 static NSString *const FishCellIdentifier = @"FishCellIdentifier";
 static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTableHeaderViewIdentifier";
 
-@interface WorldViewController () <FishSpeciesTableHeaderViewDelegate, FishTableViewCellDelegate>
+@interface WorldViewController () <FishSpeciesTableHeaderViewDelegate, FishTableViewCellDelegate> {
+    UIBarButtonItem *feedButton;
+    UIBarButtonItem *autoButton;
+    WorldTableHeaderView *worldTableHeaderView;
+}
 
 @end
 
 @implementation WorldViewController
+
+- (instancetype)initWithStyle:(UITableViewStyle)style {
+    self = [super initWithStyle:style];
+    if (self) {
+        feedButton = [[UIBarButtonItem alloc] initWithTitle:@"Feed" style:UIBarButtonItemStylePlain target:self action:@selector(feedButtonTapped)];
+        autoButton = [[UIBarButtonItem alloc] initWithTitle:@"Auto" style:UIBarButtonItemStylePlain target:self action:@selector(autoButtonTapped)];
+        worldTableHeaderView = [[WorldTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, 0, 100)];
+    }
+    return self;
+}
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:ClockTickNotification object:_world];
@@ -36,8 +52,10 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
     [self.tableView registerClass:[FishTableViewCell class] forCellReuseIdentifier:FishCellIdentifier];
     [self.tableView registerClass:[FishSpeciesTableHeaderView class] forHeaderFooterViewReuseIdentifier:FishSpeciesTableHeaderViewIdentifier];
     self.tableView.allowsSelection = NO;
+    self.navigationItem.leftBarButtonItems = @[feedButton, autoButton];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
     [self updateTitle];
+    self.tableView.tableHeaderView = worldTableHeaderView;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tick) name:ClockTickNotification object:nil];
 }
@@ -47,6 +65,7 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
 - (void)setWorld:(World *)world {
     _world = world;
     [self updateTitle];
+    worldTableHeaderView.world = world;
     [self.tableView reloadData];
 }
 
@@ -105,12 +124,23 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
 #pragma mark - "private" methods
 
 - (void)updateTitle {
-    self.title = [NSString stringWithFormat:@"Clock: %lu second(s)", (unsigned long)[Clock sharedClock].time];
+    self.title = [NSString stringWithFormat:@"%lus/%lu/%lu", (unsigned long)[Clock sharedClock].time, (unsigned long)_world.foodPackage.amount, (unsigned long)_world.lake.foodCount];
 }
 
 - (void)addButtonTapped {
     AddFishSpeciesViewController *addFishSpeciesViewController = [[AddFishSpeciesViewController alloc] initWithLake:_world.lake];
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:addFishSpeciesViewController] animated:YES completion:nil];
+}
+
+- (void)feedButtonTapped {
+    if ([_world.foodPackage isReady]) {
+        NSUInteger foodCount = [_world.foodPackage use];
+        [_world.lake addAmount:foodCount];
+    }
+}
+
+- (void)autoButtonTapped {
+    // TODO to be implemented
 }
 
 @end
