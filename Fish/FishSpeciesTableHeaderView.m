@@ -38,10 +38,10 @@
 
 - (void)setSpecies:(FishSpecies *)species {
     _species = species;
-    [self reload];
+    [self reloadData];
 }
 
-- (void)reload {
+- (void)reloadData {
     _speciesDetailsLabel.text = [NSString stringWithFormat:@"%@.\nC: %lu. i: %lu. Cm: %lu. S: %lu. T: %lu.", _species.name, _species.maxAmount, _species.biteAmount, _species.hungryPoint, _species.biteInterval, _species.digestionSpeed];
 }
 
