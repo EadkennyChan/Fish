@@ -30,6 +30,7 @@ NSString *const ClockTickNotification = @"ClockTickNotification";
 - (void)start {
     _time = 0;
     timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)stop {
