@@ -12,8 +12,15 @@
 #import "Fish.h"
 #import "FishSpecies.h"
 #import "Clock.h"
+#import "FishTableViewCell.h"
+#import "FishSpeciesTableHeaderView.h"
 
 static NSString *const FishCellIdentifier = @"FishCellIdentifier";
+static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTableHeaderViewIdentifier";
+
+@interface WorldViewController () <FishSpeciesTableHeaderViewProtocol>
+
+@end
 
 @implementation WorldViewController
 
@@ -25,7 +32,8 @@ static NSString *const FishCellIdentifier = @"FishCellIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:FishCellIdentifier];
+    [self.tableView registerClass:[FishTableViewCell class] forCellReuseIdentifier:FishCellIdentifier];
+    [self.tableView registerClass:[FishSpeciesTableHeaderView class] forHeaderFooterViewReuseIdentifier:FishSpeciesTableHeaderViewIdentifier];
     self.tableView.allowsSelection = NO;
     [self updateTitle];
 
@@ -54,21 +62,32 @@ static NSString *const FishCellIdentifier = @"FishCellIdentifier";
     FishSpecies *species = _world.lake.fishSpeciesList[indexPath.section];
     Fish *fish = [_world.lake fishListOfSpecies:species][indexPath.row];
 
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:FishCellIdentifier];
-    cell.textLabel.text = [NSString stringWithFormat:@"Ci: %lu%@", (unsigned long)fish.leftAmount, [fish isDead] ? @" - Dead. Swipe left to remove." : @""];
+    FishTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:FishCellIdentifier];
+    cell.fish = fish;
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    FishSpecies *species = _world.lake.fishSpeciesList[section];
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    FishSpeciesTableHeaderView *headerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:FishSpeciesTableHeaderViewIdentifier];
+    headerView.delegate = self;
+    headerView.species = _world.lake.fishSpeciesList[section];
+    return headerView;
+}
 
-    return [NSString stringWithFormat:@"%@: (%lu). C: %lu. i: %lu. Cm: %lu. S: %lu, T: %lu.", species.name, (unsigned long)[[_world.lake fishListOfSpecies:species] count], species.maxAmount, species.biteAmount, species.hungryPoint, species.biteInterval, species.digestionSpeed];
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 60.f;
 }
 
 #pragma mark - NSNotificationCenter related methods
 
 - (void)tick {
     [self updateTitle];
+    [self.tableView reloadData];
+}
+
+#pragma mark - FishSpeciesTableHeaderViewProtocol
+- (void)fishSpeciesTableHeaderViewAddButtonTapped:(FishSpeciesTableHeaderView *)fishSpeciesTableHeaderView {
+    [_world.lake addFish:[[Fish alloc] initWithSpecies:fishSpeciesTableHeaderView.species]];
     [self.tableView reloadData];
 }
 

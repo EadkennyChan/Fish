@@ -20,6 +20,9 @@
 		1B657C511C05E8B000C1A64B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1B657C501C05E8B000C1A64B /* .gitignore */; };
 		1B657C5D1C06000000C1A64B /* FishSpecies.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657C5C1C06000000C1A64B /* FishSpecies.m */; };
 		1B671B1A1C099B0300E009B8 /* WorldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B671B191C099B0300E009B8 /* WorldViewController.m */; };
+		1B671B251C09FF1B00E009B8 /* FishTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B671B241C09FF1B00E009B8 /* FishTableViewCell.m */; };
+		1B671B281C0A010500E009B8 /* FishSpeciesTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B671B271C0A010500E009B8 /* FishSpeciesTableHeaderView.m */; };
+		1B671B2C1C0A015C00E009B8 /* FishSpeciesTableHeaderContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B671B2B1C0A015C00E009B8 /* FishSpeciesTableHeaderContentView.xib */; };
 		1B781CC01C08B96100F568B9 /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B781CBF1C08B96100F568B9 /* Clock.m */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,11 @@
 		1B657C5C1C06000000C1A64B /* FishSpecies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishSpecies.m; sourceTree = "<group>"; };
 		1B671B181C099B0300E009B8 /* WorldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldViewController.h; sourceTree = "<group>"; };
 		1B671B191C099B0300E009B8 /* WorldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldViewController.m; sourceTree = "<group>"; };
+		1B671B231C09FF1B00E009B8 /* FishTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishTableViewCell.h; sourceTree = "<group>"; };
+		1B671B241C09FF1B00E009B8 /* FishTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishTableViewCell.m; sourceTree = "<group>"; };
+		1B671B261C0A010500E009B8 /* FishSpeciesTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishSpeciesTableHeaderView.h; sourceTree = "<group>"; };
+		1B671B271C0A010500E009B8 /* FishSpeciesTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishSpeciesTableHeaderView.m; sourceTree = "<group>"; };
+		1B671B2B1C0A015C00E009B8 /* FishSpeciesTableHeaderContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FishSpeciesTableHeaderContentView.xib; sourceTree = "<group>"; };
 		1B781CBE1C08B96100F568B9 /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
 		1B781CBF1C08B96100F568B9 /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +92,7 @@
 		1B657C381C05E78D00C1A64B /* Fish */ = {
 			isa = PBXGroup;
 			children = (
+				1B671B221C09FEFC00E009B8 /* Views */,
 				1B671B171C099AD300E009B8 /* Controllers */,
 				1B657C5A1C05FFAF00C1A64B /* Models */,
 				1B657C3C1C05E78D00C1A64B /* AppDelegate.h */,
@@ -135,6 +144,26 @@
 				1B671B191C099B0300E009B8 /* WorldViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1B671B221C09FEFC00E009B8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1B671B2A1C0A015000E009B8 /* Xibs */,
+				1B671B231C09FF1B00E009B8 /* FishTableViewCell.h */,
+				1B671B241C09FF1B00E009B8 /* FishTableViewCell.m */,
+				1B671B261C0A010500E009B8 /* FishSpeciesTableHeaderView.h */,
+				1B671B271C0A010500E009B8 /* FishSpeciesTableHeaderView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1B671B2A1C0A015000E009B8 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				1B671B2B1C0A015C00E009B8 /* FishSpeciesTableHeaderContentView.xib */,
+			);
+			name = Xibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B671B2C1C0A015C00E009B8 /* FishSpeciesTableHeaderContentView.xib in Resources */,
 				1B657C511C05E8B000C1A64B /* .gitignore in Resources */,
 				1B657C491C05E78E00C1A64B /* LaunchScreen.storyboard in Resources */,
 				1B657C461C05E78E00C1A64B /* Assets.xcassets in Resources */,
@@ -214,6 +244,8 @@
 				1B460D8B1C0606E0002251C9 /* Fish.m in Sources */,
 				1B203EC91C0760EB00219E87 /* FoodPackage.m in Sources */,
 				1B657C3E1C05E78D00C1A64B /* AppDelegate.m in Sources */,
+				1B671B251C09FF1B00E009B8 /* FishTableViewCell.m in Sources */,
+				1B671B281C0A010500E009B8 /* FishSpeciesTableHeaderView.m in Sources */,
 				1B203EC61C07595800219E87 /* Robot.m in Sources */,
 				1B657C5D1C06000000C1A64B /* FishSpecies.m in Sources */,
 				1B657C3B1C05E78D00C1A64B /* main.m in Sources */,
