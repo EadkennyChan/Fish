@@ -10,8 +10,17 @@
 
 @class Fish;
 
+@class FishTableViewCell;
+
+@protocol FishTableViewCellDelegate <NSObject>
+
+- (void)fishTableViewCellDeleteButtonTapped:(FishTableViewCell *)fishTableViewCell;
+
+@end
+
 @interface FishTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) id<FishTableViewCellDelegate> delegate;
 @property (nonatomic) Fish *fish;
 
 @end

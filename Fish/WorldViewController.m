@@ -19,7 +19,7 @@
 static NSString *const FishCellIdentifier = @"FishCellIdentifier";
 static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTableHeaderViewIdentifier";
 
-@interface WorldViewController () <FishSpeciesTableHeaderViewProtocol>
+@interface WorldViewController () <FishSpeciesTableHeaderViewDelegate, FishTableViewCellDelegate>
 
 @end
 
@@ -65,6 +65,7 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
     Fish *fish = [_world.lake fishListOfSpecies:species][indexPath.row];
 
     FishTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:FishCellIdentifier];
+    cell.delegate = self;
     cell.fish = fish;
     return cell;
 }
@@ -87,9 +88,17 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
     [self.tableView reloadData];
 }
 
-#pragma mark - FishSpeciesTableHeaderViewProtocol
+#pragma mark - FishSpeciesTableHeaderViewDelegate
+
 - (void)fishSpeciesTableHeaderViewAddButtonTapped:(FishSpeciesTableHeaderView *)fishSpeciesTableHeaderView {
     [_world.lake addFish:[[Fish alloc] initWithSpecies:fishSpeciesTableHeaderView.species]];
+    [self.tableView reloadData];
+}
+
+#pragma mark - FishTableViewCellDelegte
+
+- (void)fishTableViewCellDeleteButtonTapped:(FishTableViewCell *)fishTableViewCell {
+    [_world.lake removeFish:fishTableViewCell.fish];
     [self.tableView reloadData];
 }
 

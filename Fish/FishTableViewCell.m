@@ -15,6 +15,15 @@
     self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     if (self) {
         self.detailTextLabel.textColor = [UIColor redColor];
+
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [button setTitle:@"-" forState:UIControlStateNormal];
+        button.frame = CGRectMake(0, 0, 44, 41);
+        [button addTarget:self action:@selector(deleteButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        self.accessoryView = button;
+
+        self.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     return self;
 }
@@ -31,7 +40,12 @@
 
 - (void)reloadData {
     self.textLabel.text = [NSString stringWithFormat:@"Ci: %lu", (unsigned long)_fish.leftAmount];
-    self.detailTextLabel.text = [_fish isDead] ? @"Dead - Swipe left to delete" : [_fish isHungry] ? @"Hungry" : nil;
+    self.detailTextLabel.text = [_fish isDead] ? @"Dead" : [_fish isHungry] ? @"Hungry" : nil;
+    self.accessoryView.hidden = ![_fish isDead];
+}
+
+- (void)deleteButtonTapped {
+    [_delegate fishTableViewCellDeleteButtonTapped:self];
 }
 
 @end

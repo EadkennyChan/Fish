@@ -13,7 +13,7 @@
 
 @class FishSpeciesTableHeaderView;
 
-@protocol FishSpeciesTableHeaderViewProtocol <NSObject>
+@protocol FishSpeciesTableHeaderViewDelegate <NSObject>
 
 - (void)fishSpeciesTableHeaderViewAddButtonTapped:(FishSpeciesTableHeaderView *)fishSpeciesTableHeaderView;
 
@@ -21,7 +21,7 @@
 
 @interface FishSpeciesTableHeaderView : UITableViewHeaderFooterView
 
-@property (weak, nonatomic) id<FishSpeciesTableHeaderViewProtocol> delegate;
+@property (weak, nonatomic) id<FishSpeciesTableHeaderViewDelegate> delegate;
 @property (nonatomic) FishSpecies *species;
 
 @end

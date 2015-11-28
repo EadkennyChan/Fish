@@ -72,8 +72,17 @@
     [_fishGroupList[[_fishSpeciesList indexOfObject:species]] addObject:fish];
 }
 
+- (void)removeFish:(Fish *)fish {
+    NSMutableArray *fishList = (NSMutableArray *)[self fishListOfSpecies:fish.species];
+    [fishList removeObject:fish];
+}
+
 - (NSArray *)fishListOfSpecies:(FishSpecies *)species {
-    return _fishGroupList[[_fishSpeciesList indexOfObject:species]];
+    NSUInteger speciesIndex = [_fishSpeciesList indexOfObject:species];
+    if (speciesIndex != NSNotFound) {
+        return _fishGroupList[speciesIndex];
+    }
+    return nil;
 }
 
 @end

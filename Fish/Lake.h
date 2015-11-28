@@ -20,6 +20,7 @@
 - (NSUInteger)takeMaxAmount:(NSUInteger)maxAmount;
 - (void)addFishSpecies:(FishSpecies *)species;
 - (void)addFish:(Fish *)fish;
+- (void)removeFish:(Fish *)fish;
 - (NSArray *)fishListOfSpecies:(FishSpecies *)species;
 
 @end
