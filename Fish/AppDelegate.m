@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "WorldViewController.h"
 #import "World.h"
+#import "Clock.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,8 @@
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _window.rootViewController = [[UINavigationController alloc] initWithRootViewController:worldViewController];
     [_window makeKeyAndVisible];
+
+    [world.clock start];
     return YES;
 }
 

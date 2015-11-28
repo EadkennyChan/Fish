@@ -11,25 +11,37 @@
 #import "Lake.h"
 #import "Fish.h"
 #import "FishSpecies.h"
+#import "Clock.h"
 
 static NSString *const FishCellIdentifier = @"FishCellIdentifier";
 
 @implementation WorldViewController
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ClockTickNotification object:_world];
+}
+
 #pragma mark - UIViewController life cycle methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Fish";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:FishCellIdentifier];
     self.tableView.allowsSelection = NO;
+    [self updateTitle];
 }
 
 #pragma mark - setters and getters
 
 - (void)setWorld:(World *)world {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ClockTickNotification object:_world];
+
     _world = world;
+    [self updateTitle];
     [self.tableView reloadData];
+
+    if (_world) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tick) name:ClockTickNotification object:_world.clock];
+    }
 }
 
 #pragma mark - UITableView related methods
@@ -55,6 +67,18 @@ static NSString *const FishCellIdentifier = @"FishCellIdentifier";
     FishSpecies *species = _world.lake.fishSpeciesList[section];
 
     return [NSString stringWithFormat:@"%@: (%lu). C: %lu. i: %lu. Cm: %lu. S: %lu, T: %lu.", species.name, (unsigned long)[[_world.lake fishListOfSpecies:species] count], species.maxAmount, species.biteAmount, species.hungryPoint, species.biteInterval, species.digestionSpeed];
+}
+
+#pragma mark - NSNotificationCenter related methods
+
+- (void)tick {
+    [self updateTitle];
+}
+
+#pragma mark - "private" methods
+
+- (void)updateTitle {
+    self.title = [NSString stringWithFormat:@"Clock: %lu second(s)", (unsigned long)_world.clock.time];
 }
 
 @end
