@@ -28,6 +28,7 @@
 		1B671B341C0A352C00E009B8 /* WorldTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B671B331C0A352C00E009B8 /* WorldTableHeaderView.m */; };
 		1B671B361C0A35B200E009B8 /* WorldTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B671B351C0A35B200E009B8 /* WorldTableHeaderView.xib */; };
 		1B781CC01C08B96100F568B9 /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B781CBF1C08B96100F568B9 /* Clock.m */; };
+		1BA2B7AC1C0AAA6A00F3E591 /* RandomNumberHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA2B7AB1C0AAA6A00F3E591 /* RandomNumberHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,8 @@
 		1B671B351C0A35B200E009B8 /* WorldTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorldTableHeaderView.xib; sourceTree = "<group>"; };
 		1B781CBE1C08B96100F568B9 /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
 		1B781CBF1C08B96100F568B9 /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
+		1BA2B7AA1C0AAA6A00F3E591 /* RandomNumberHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomNumberHelper.h; sourceTree = "<group>"; };
+		1BA2B7AB1C0AAA6A00F3E591 /* RandomNumberHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomNumberHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 		1B657C381C05E78D00C1A64B /* Fish */ = {
 			isa = PBXGroup;
 			children = (
+				1BA2B7A91C0AAA5200F3E591 /* Helpers */,
 				1B671B221C09FEFC00E009B8 /* Views */,
 				1B671B171C099AD300E009B8 /* Controllers */,
 				1B657C5A1C05FFAF00C1A64B /* Models */,
@@ -180,6 +184,15 @@
 				1B671B351C0A35B200E009B8 /* WorldTableHeaderView.xib */,
 			);
 			name = Xibs;
+			sourceTree = "<group>";
+		};
+		1BA2B7A91C0AAA5200F3E591 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1BA2B7AA1C0AAA6A00F3E591 /* RandomNumberHelper.h */,
+				1BA2B7AB1C0AAA6A00F3E591 /* RandomNumberHelper.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +277,7 @@
 				1B657C3E1C05E78D00C1A64B /* AppDelegate.m in Sources */,
 				1B671B251C09FF1B00E009B8 /* FishTableViewCell.m in Sources */,
 				1B671B281C0A010500E009B8 /* FishSpeciesTableHeaderView.m in Sources */,
+				1BA2B7AC1C0AAA6A00F3E591 /* RandomNumberHelper.m in Sources */,
 				1B671B341C0A352C00E009B8 /* WorldTableHeaderView.m in Sources */,
 				1B203EC61C07595800219E87 /* Robot.m in Sources */,
 				1B657C5D1C06000000C1A64B /* FishSpecies.m in Sources */,

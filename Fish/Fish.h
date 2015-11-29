@@ -16,6 +16,7 @@
 @property (nonatomic, readonly) FishSpecies *species;
 @property (nonatomic, readonly) NSUInteger leftAmount; // Ci
 @property (nonatomic, readonly, getter=isDead) BOOL dead;
+@property (nonatomic, getter=isFoodAware) BOOL foodAware;
 
 @property (weak, nonatomic) Lake *lake;
 

@@ -14,8 +14,6 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.detailTextLabel.textColor = [UIColor redColor];
-
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         [button setTitle:@"-" forState:UIControlStateNormal];
@@ -40,8 +38,25 @@
 
 - (void)reloadData {
     self.textLabel.text = [NSString stringWithFormat:@"Ci: %lu", (unsigned long)_fish.leftAmount];
-    self.detailTextLabel.text = [_fish isDead] ? @"Dead" : [_fish isHungry] ? @"Hungry" : nil;
-    self.accessoryView.hidden = ![_fish isDead];
+
+    NSString *detailText;
+    if (_fish.isDead) {
+        detailText = @"Dead";
+    } else {
+        if ([_fish isHungry]) {
+            detailText = @"Hungry";
+        }
+        if (_fish.foodAware) {
+            if (detailText) {
+                detailText = [detailText stringByAppendingString:@" FoodAware"];
+            } else {
+                detailText = @"FoodAware";
+            }
+        }
+    }
+    self.detailTextLabel.text = detailText;
+
+    self.accessoryView.hidden = !_fish.isDead;
 }
 
 - (void)deleteButtonTapped {

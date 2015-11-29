@@ -9,6 +9,7 @@
 #import "Lake.h"
 #import "FishSpecies.h"
 #import "Fish.h"
+#import "RandomNumberHelper.h"
 
 @interface Lake () {
     NSMutableArray *_fishSpeciesList;
@@ -32,11 +33,11 @@
         [_fishSpeciesList addObject:[[FishSpecies alloc] initWithName:@"Firefish" maxAmount:7 biteAmount:1 hungryPoint:2 biteInterval:1 digestionSpeed:5]];
 
         _fishGroupList = [NSMutableArray arrayWithCapacity:6];
-        // add a random number (from 6 to 9 inclusively) of fish of each species
+        // add a random number (from 5 to 10 inclusively) of fish of each species
         for (FishSpecies *species in _fishSpeciesList) {
             [_fishGroupList addObject:[NSMutableArray array]];
 
-            NSUInteger randomFishIndividualsNumber = arc4random_uniform(4) + 6;
+            NSUInteger randomFishIndividualsNumber = [RandomNumberHelper randomNumberBetweenMin:5 max:10];
             for (NSUInteger i = 0; i < randomFishIndividualsNumber; i++) {
                 Fish *fish = [[Fish alloc] initWithSpecies:species];
                 fish.lake = self;
@@ -49,11 +50,37 @@
 
 - (void)addAmount:(NSUInteger)amount {
     _foodCount += amount;
+
+    for (NSArray *fishGroup in _fishGroupList) {
+        NSMutableArray *aliveFishList = [NSMutableArray array];
+
+        for (Fish *fish in fishGroup) {
+            if (!fish.isDead) {
+                [aliveFishList addObject:fish];
+            }
+        }
+
+        if ([aliveFishList count] > 0) {
+            NSUInteger randomFishIndex = [RandomNumberHelper randomNumberBetweenMin:0 max:(u_int32_t)([aliveFishList count] - 1)];
+            Fish *fish = aliveFishList[randomFishIndex];
+            fish.foodAware = YES;
+        }
+    }
 }
 
 - (NSUInteger)takeMaxAmount:(NSUInteger)maxAmount {
     NSUInteger amount = MIN(_foodCount, maxAmount);
     _foodCount -= amount;
+
+    // run out of food
+    if (_foodCount == 0) {
+        for (NSArray *firstGroup in _fishGroupList) {
+            for (Fish *fish in firstGroup) {
+                fish.foodAware = NO;
+            }
+        }
+    }
+
     return amount;
 }
 
