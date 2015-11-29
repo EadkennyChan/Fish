@@ -139,7 +139,9 @@ static NSString *const FishFoodNotification = @"FishFoodNotification";
 
 - (void)tick {
     [self digest];
-    [self processEating];
+    if (_foodAware) {
+        [self processEating];
+    }
 }
 
 @end
