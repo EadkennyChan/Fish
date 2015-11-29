@@ -97,6 +97,7 @@
     }
 
     [_fishGroupList[[_fishSpeciesList indexOfObject:species]] addObject:fish];
+    fish.lake = self;
 }
 
 - (void)removeFish:(Fish *)fish {
