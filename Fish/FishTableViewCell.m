@@ -54,7 +54,14 @@
             }
         }
     }
-    self.detailTextLabel.text = detailText;
+    NSMutableAttributedString *attributedDetailText;
+    if (detailText.length > 0) {
+        attributedDetailText = [[NSMutableAttributedString alloc] initWithString:detailText];
+        [attributedDetailText addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:[detailText rangeOfString:@"Dead"]];
+        [attributedDetailText addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:[detailText rangeOfString:@"Hungry"]];
+        [attributedDetailText addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:[detailText rangeOfString:@"FoodAware"]];
+    }
+    self.detailTextLabel.attributedText = attributedDetailText;
 
     self.accessoryView.hidden = !_fish.isDead;
 }
