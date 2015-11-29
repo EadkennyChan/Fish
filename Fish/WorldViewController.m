@@ -9,6 +9,7 @@
 #import "WorldViewController.h"
 #import "World.h"
 #import "Farmer.h"
+#import "Robot.h"
 #import "Lake.h"
 #import "Fish.h"
 #import "FishSpecies.h"
@@ -23,6 +24,8 @@ static NSString *const FishCellIdentifier = @"FishCellIdentifier";
 static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTableHeaderViewIdentifier";
 
 @interface WorldViewController () <FishSpeciesTableHeaderViewDelegate, FishTableViewCellDelegate> {
+    BOOL autoMode;
+
     UIBarButtonItem *feedButton;
     UIBarButtonItem *autoButton;
     WorldTableHeaderView *worldTableHeaderView;
@@ -35,8 +38,9 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
+        autoMode = NO;
         feedButton = [[UIBarButtonItem alloc] initWithTitle:@"Feed" style:UIBarButtonItemStylePlain target:self action:@selector(feedButtonTapped)];
-        autoButton = [[UIBarButtonItem alloc] initWithTitle:@"Auto" style:UIBarButtonItemStylePlain target:self action:@selector(autoButtonTapped)];
+        autoButton = [[UIBarButtonItem alloc] initWithTitle:@"Auto: Off" style:UIBarButtonItemStylePlain target:self action:@selector(autoButtonTapped)];
         worldTableHeaderView = [[WorldTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, 0, 100)];
     }
     return self;
@@ -144,11 +148,18 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
 }
 
 - (void)reloadFeedButton {
-    feedButton.enabled = [_world.foodPackage isReady];
+    feedButton.enabled = !autoMode && [_world.foodPackage isReady];
 }
 
 - (void)autoButtonTapped {
-    // TODO to be implemented
+    autoMode = !autoMode;
+    autoButton.title = autoMode ? @"Auto: On" : @"Auto: Off";
+    [self reloadFeedButton];
+    if (autoMode) {
+        [_world.robot start];
+    } else {
+        [_world.robot stop];
+    }
 }
 
 @end

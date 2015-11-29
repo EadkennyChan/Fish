@@ -7,7 +7,21 @@
 //
 
 #import "Robot.h"
+#import "Clock.h"
 
 @implementation Robot
+
+- (void)start {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ClockTickNotification object:nil]; // to avoid duplicated observer when start more than once.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tick) name:ClockTickNotification object:nil];
+}
+
+- (void)stop {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ClockTickNotification object:nil];
+}
+
+- (void)tick {
+    [self feed];
+}
 
 @end

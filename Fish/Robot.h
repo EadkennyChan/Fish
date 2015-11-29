@@ -11,4 +11,7 @@
 
 @interface Robot : Feeder
 
+- (void)start;
+- (void)stop;
+
 @end
