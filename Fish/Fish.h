@@ -15,11 +15,11 @@
 
 @property (nonatomic, readonly) FishSpecies *species;
 @property (nonatomic, readonly) NSUInteger leftAmount; // Ci
+@property (nonatomic, readonly, getter=isDead) BOOL dead;
 
 @property (weak, nonatomic) Lake *lake;
 
 - (instancetype)initWithSpecies:(FishSpecies *)species;
 - (BOOL)isHungry;
-- (BOOL)isDead;
 
 @end

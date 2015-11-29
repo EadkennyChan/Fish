@@ -49,10 +49,6 @@
     return _leftAmount < _species.hungryPoint;
 }
 
-- (BOOL)isDead {
-    return _leftAmount == 0;
-}
-
 #pragma mark - "private" methods
 
 - (void)bite {
@@ -64,11 +60,21 @@
 }
 
 - (BOOL)canBite {
-    return [Clock sharedClock].time - _lastBiteTime >= _species.biteInterval;
+    return !_dead && [Clock sharedClock].time - _lastBiteTime >= _species.biteInterval;
 }
 
 - (void)digest {
     _leftAmount -= MIN(_leftAmount, self.species.digestionSpeed);
+
+    if (_leftAmount == 0) {
+        [self die];
+    }
+}
+
+- (void)die {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ClockTickNotification object:nil];
+
+    _dead = YES;
 }
 
 #pragma mark - NSNotificationCenter related methods
