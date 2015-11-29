@@ -41,7 +41,7 @@ static NSString *const FishFoodNotification = @"FishFoodNotification";
         _hasBitten = NO;
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tick) name:ClockTickNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(heard) name:FishFoodNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(heard) name:FishFoodNotification object:_species];
     }
     return self;
 }
@@ -74,10 +74,10 @@ static NSString *const FishFoodNotification = @"FishFoodNotification";
 - (void)setListening:(NSUInteger)listening {
     _listening = listening;
 
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:FishFoodNotification object:nil]; // always remove first to avoid duplicated observer.
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:FishFoodNotification object:_species]; // always remove first to avoid duplicated observer.
 
     if (_listening) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(heard) name:FishFoodNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(heard) name:FishFoodNotification object:_species];
     }
 }
 
@@ -113,13 +113,13 @@ static NSString *const FishFoodNotification = @"FishFoodNotification";
 
 - (void)die {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:ClockTickNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:FishFoodNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:FishFoodNotification object:_species];
 
     _dead = YES;
 }
 
 - (void)notify {
-    [[NSNotificationCenter defaultCenter] postNotificationName:FishFoodNotification object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:FishFoodNotification object:_species];
 }
 
 - (void)heard {
