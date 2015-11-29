@@ -49,21 +49,23 @@
 }
 
 - (void)addAmount:(NSUInteger)amount {
-    _foodCount += amount;
+    if (amount > 0) {
+        _foodCount += amount;
 
-    for (NSArray *fishGroup in _fishGroupList) {
-        NSMutableArray *aliveFishList = [NSMutableArray array];
+        for (NSArray *fishGroup in _fishGroupList) {
+            NSMutableArray *aliveFishList = [NSMutableArray array];
 
-        for (Fish *fish in fishGroup) {
-            if (!fish.isDead) {
-                [aliveFishList addObject:fish];
+            for (Fish *fish in fishGroup) {
+                if (!fish.isDead) {
+                    [aliveFishList addObject:fish];
+                }
             }
-        }
 
-        if ([aliveFishList count] > 0) {
-            NSUInteger randomFishIndex = [RandomNumberHelper randomNumberBetweenMin:0 max:(u_int32_t)([aliveFishList count] - 1)];
-            Fish *fish = aliveFishList[randomFishIndex];
-            fish.foodAware = YES;
+            if ([aliveFishList count] > 0) {
+                NSUInteger randomFishIndex = [RandomNumberHelper randomNumberBetweenMin:0 max:(u_int32_t)([aliveFishList count] - 1)];
+                Fish *fish = aliveFishList[randomFishIndex];
+                fish.foodAware = YES;
+            }
         }
     }
 }

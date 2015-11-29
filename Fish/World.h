@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Feeder.h"
 
-@class Clock;
+@class Farmer;
+@class Robot;
 @class Lake;
 @class FoodPackage;
 
 @interface World : NSObject
 
-@property (nonatomic, readonly) id<Feeder> feeder;
+@property (nonatomic, readonly) Farmer *farmer;
+@property (nonatomic, readonly) Robot *robot;
 @property (nonatomic, readonly) Lake *lake;
 @property (nonatomic, readonly) FoodPackage *foodPackage;
 

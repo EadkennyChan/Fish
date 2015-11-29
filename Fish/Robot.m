@@ -7,21 +7,7 @@
 //
 
 #import "Robot.h"
-#import "FoodPackage.h"
-#import "Lake.h"
-
-@interface Robot () {
-    FoodPackage *_foodPackage;
-    Lake *_lake;
-}
-
-@end
 
 @implementation Robot
-@synthesize foodPackage=_foodPackage, lake=_lake;
-
-- (void)feed {
-    // TODO: to be implemented
-}
 
 @end

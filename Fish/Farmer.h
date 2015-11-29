@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Feeder.h"
 
-@interface Farmer : NSObject <Feeder>
+@interface Farmer : Feeder
 
 @end

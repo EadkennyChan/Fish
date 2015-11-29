@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Feeder.h"
 
-@interface Robot : NSObject <Feeder>
+@interface Robot : Feeder
 
 @end

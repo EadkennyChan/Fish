@@ -8,6 +8,7 @@
 
 #import "WorldViewController.h"
 #import "World.h"
+#import "Farmer.h"
 #import "Lake.h"
 #import "Fish.h"
 #import "FishSpecies.h"
@@ -139,10 +140,7 @@ static NSString *const FishSpeciesTableHeaderViewIdentifier = @"FishSpeciesTable
 }
 
 - (void)feedButtonTapped {
-    if ([_world.foodPackage isReady]) {
-        NSUInteger foodCount = [_world.foodPackage use];
-        [_world.lake addAmount:foodCount];
-    }
+    [_world.farmer feed];
 }
 
 - (void)reloadFeedButton {

@@ -7,22 +7,7 @@
 //
 
 #import "Farmer.h"
-#import "FoodPackage.h"
-#import "Lake.h"
-
-@interface Farmer () {
-    FoodPackage *_foodPackage;
-    Lake *_lake;
-}
-
-@end
 
 @implementation Farmer
-@synthesize foodPackage=_foodPackage, lake=_lake;
-
-- (void)feed {
-    NSUInteger amount = [_foodPackage use];
-    [_lake addAmount:amount];
-}
 
 @end

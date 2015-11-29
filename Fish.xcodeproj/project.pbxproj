@@ -29,6 +29,7 @@
 		1B671B361C0A35B200E009B8 /* WorldTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B671B351C0A35B200E009B8 /* WorldTableHeaderView.xib */; };
 		1B781CC01C08B96100F568B9 /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B781CBF1C08B96100F568B9 /* Clock.m */; };
 		1BA2B7AC1C0AAA6A00F3E591 /* RandomNumberHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA2B7AB1C0AAA6A00F3E591 /* RandomNumberHelper.m */; };
+		1BA2B7AF1C0ADC2300F3E591 /* Feeder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA2B7AE1C0ADC2300F3E591 /* Feeder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		1B781CBF1C08B96100F568B9 /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
 		1BA2B7AA1C0AAA6A00F3E591 /* RandomNumberHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomNumberHelper.h; sourceTree = "<group>"; };
 		1BA2B7AB1C0AAA6A00F3E591 /* RandomNumberHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomNumberHelper.m; sourceTree = "<group>"; };
+		1BA2B7AE1C0ADC2300F3E591 /* Feeder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feeder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				1B203EC71C0760EB00219E87 /* FoodPackage.h */,
 				1B203EC81C0760EB00219E87 /* FoodPackage.m */,
 				1B203EC01C07591600219E87 /* Feeder.h */,
+				1BA2B7AE1C0ADC2300F3E591 /* Feeder.m */,
 				1B203EC11C07594600219E87 /* Farmer.h */,
 				1B203EC21C07594600219E87 /* Farmer.m */,
 				1B203EC41C07595800219E87 /* Robot.h */,
@@ -274,6 +277,7 @@
 				1B203EBF1C0758E200219E87 /* World.m in Sources */,
 				1B460D8B1C0606E0002251C9 /* Fish.m in Sources */,
 				1B203EC91C0760EB00219E87 /* FoodPackage.m in Sources */,
+				1BA2B7AF1C0ADC2300F3E591 /* Feeder.m in Sources */,
 				1B657C3E1C05E78D00C1A64B /* AppDelegate.m in Sources */,
 				1B671B251C09FF1B00E009B8 /* FishTableViewCell.m in Sources */,
 				1B671B281C0A010500E009B8 /* FishSpeciesTableHeaderView.m in Sources */,
